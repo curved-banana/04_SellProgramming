@@ -1,0 +1,55 @@
+-------------192.168.10.10 의 로그인 기록-------------------
+Trying 192.168.10.10...
+Connected to 192.168.10.10.
+Escape character is '^]'.
+
+Kernel 4.18.0-492.el8.x86_64 on an x86_64
+main login: root
+Password: 
+Last login: Mon Aug 28 16:45:52 from main
+]0;root@main:~[34;1m[root@main[33;1m ~]# [mcat /var/log/secure* | grep Accepted | egrep -v "(192.168.10.10)"  | awk '{print $9"\t"$11"\t"$14}' |sort | uniq 
+nfsuser	::1	ssh2
+root	192.168.10.20	ssh2
+root	192.168.10.20	ssh2:
+root	192.168.10.30	ssh2
+root	192.168.10.30	ssh2:
+]0;root@main:~[34;1m[root@main[33;1m ~]# [m--------------------------------------------------
+
+-------------192.168.10.20 의 로그인 기록-------------------
+Trying 192.168.10.20...
+Connected to 192.168.10.20.
+Escape character is '^]'.
+
+Kernel 4.18.0-500.el8.x86_64 on an x86_64
+server1 login: root
+Password: 
+Last login: Mon Aug 28 16:46:05 from main
+]0;root@server1:~[31;1m[root@server1[33;1m ~]# [mcat /var/log/secure* | grep Accepted | egrep -v "(192.168.10.100)" | awk '{print $9"\t"$11"\t"$14}' |sort | uniq 
+fedora	192.168.10.20	ssh2
+fedora	192.168.10.30	ssh2
+root	192.168.10.20	ssh2
+root	192.168.10.20	ssh2:
+root	192.168.10.30	ssh2
+root	192.168.10.30	ssh2:
+root	::1	ssh2
+root	::1	ssh2:
+user01	192.168.10.30	ssh2
+user01	::1	ssh2
+]0;root@server1:~[31;1m[root@server1[33;1m ~]# [m--------------------------------------------------
+
+-------------192.168.10.30 의 로그인 기록-------------------
+Trying 192.168.10.30...
+Connected to 192.168.10.30.
+Escape character is '^]'.
+
+Kernel 4.18.0-492.el8.x86_64 on an x86_64
+server2 login: root
+Password: 
+Last login: Mon Aug 28 16:46:18 from main
+]0;root@server2:~[32;1m[root@server2[33;1m ~]# [mcat /var/log/secure* | grep Accepted | egrep -v "(192.168.10.100)" | awk '{print $9"\t"$11"\t"$14}' |sort | uniq 
+root	192.168.10.20	ssh2
+root	192.168.10.20	ssh2:
+root	192.168.10.30	ssh2
+root	192.168.10.30	ssh2:
+]0;root@server2:~[32;1m[root@server2[33;1m ~]# [m--------------------------------------------------
+
